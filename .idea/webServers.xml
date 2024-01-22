@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9f0ad7fb-348f-42c0-8b7b-40778b98dfcc" name="pjlab">
+        <fileTransfer accessType="SFTP" host="jump.pjlab.org.cn" port="22" sshConfigId="45e58f5a-eb69-4b52-bb23-0457c316e62c" sshConfig="pjlab_new">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="20328bb4-7420-4512-b1f7-0722426f6420" name="hkH800">
+        <fileTransfer accessType="SFTP" host="jumper" port="8822" sshConfigId="719d6444-567b-4251-82ef-e31b5b236f90" sshConfig="hkh800" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="a07a21f9-0381-45d9-b914-fcd8998a4dba" name="fudan02">
+        <fileTransfer rootFolder="/cpfs01/projects-HDD/cfff-23ba4487e9df_HDD/wangzili" accessType="SFTP" host="10.193.2.99" port="30282" sshConfigId="2a1ebbd3-4371-4613-933d-6bc0ff773afb" sshConfig="wangzili@10.193.2.99:30282 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

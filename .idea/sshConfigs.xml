@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="jumper" id="719d6444-567b-4251-82ef-e31b5b236f90" keyPath="$USER_HOME$/.ssh/id_rsa" port="8822" customName="hkh800" nameFormat="CUSTOM" username="songyanggao" useOpenSSHConfig="true">
+        <option name="customName" value="hkh800" />
+      </sshConfig>
+      <sshConfig authType="PASSWORD" host="10.193.2.99" id="2a1ebbd3-4371-4613-933d-6bc0ff773afb" port="30282" nameFormat="DESCRIPTIVE" username="wangzili" useOpenSSHConfig="false" />
+    </configs>
+  </component>
+</project>
