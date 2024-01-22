@@ -1,0 +1,44 @@
+default:
+  tags:
+    - huawei-k8s-gpu-a800-1
+
+stages:
+  - test
+
+variables:
+  VERSION: 23.02.4.2
+  DOCKER_RERO: swr.cn-north-9.myhuaweicloud.com
+  IMAGE_NAME: inftech/pai-pytorch-rdma-base
+
+#workflow:
+#  rules:
+#  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # 仅在默认分支触发
+
+
+unit_tests:
+  image: ${DOCKER_RERO}/${IMAGE_NAME}:${VERSION}
+  tags:
+    - huawei-k8s-gpu-a800-1
+  stage: test
+  script:
+    - ls /mount/pvc/cicd/mlm_test/test_data
+    - export TEST_DATA_PATH=/mount/pvc/cicd/mlm_test/test_data
+    - pip install pytest;pip install nltk;pip install pybind11 -i https://pypi.tuna.tsinghua.edu.cn/simple/ pybind11;
+    - cd megatron/data;make
+    - cd ../../
+    - python -m pytest tests/unit_tests/data/test_data.py
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+  
+train_tp2_pp1_dp1_nodo_sft:
+  image: ${DOCKER_RERO}/${IMAGE_NAME}:${VERSION}
+  tags:
+    - huawei-k8s-gpu-a800-2
+  script: 
+    - export TEST_DATA_PATH=/mount/pvc/cicd/mlm_test/test_data
+    - bash tests/functional_tests/test_scripts/sft/run_sft.sh 2 bf16 2 1 true false
+  rules:
+    - if: $RUN_MODE == "all"
+      when: manual
+      allow_failure: true

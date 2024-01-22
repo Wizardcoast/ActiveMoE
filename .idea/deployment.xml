@@ -65,18 +65,18 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="fudan01">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="fudan02">
         <serverdata>
           <mappings>
-            <mapping deploy="/moe_yuan/megablock/megablock_0_0/megatron/Megatron-Inf" local="$PROJECT_DIR$/megatron_inf" web="/" />
-            <mapping deploy="" local="$PROJECT_DIR$/activeMoE" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath path="/moe_yuan/megablock/megablock_0_0/megatron/Megatron-Inf/save" />
-            <excludedPath path="/moe_yuan/megablock/megablock_0_0/megatron/Megatron-Inf/save_moe" />
-            <excludedPath path="/moe_yuan/megablock/megablock_0_0/megatron/Megatron-Inf/core.112307" />
-            <excludedPath path="/moe_yuan/megablock/megablock_0_0/megatron/Megatron-Inf/core.115540" />
-          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="hkH800">
