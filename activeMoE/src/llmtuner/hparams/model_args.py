@@ -111,6 +111,10 @@ class ModelArguments:
         default=False,
         metadata={"help": "Whether or not to turn a dense model to MoEs strcuture"}
     )
+    model_name: Optional[str] = field(
+        default='llama',
+        metadata={"help": "model names to be upcycled."}
+    )
     MoE_config_path: Optional[str] = field(
         default=None,
         metadata={"help": "Path to the MoEs config"}

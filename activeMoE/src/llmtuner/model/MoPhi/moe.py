@@ -7,6 +7,7 @@ import torch.nn.functional as F
 
 from .parallel_experts import ParallelExperts
 from .gate import top_k_gating, compute_gating
+from transformers.activations import ACT2FN
 
 
 class MoE(nn.Module):
@@ -262,11 +263,11 @@ class MoPhiFFNs(nn.Module):
         self.input_size = input_size
         self.head_size = head_size
         self.bias = bias
-        self.gate_proj = ParallelExperts(num_experts, input_size, head_size, bias, no_random_init=True)
-        self.up_proj = ParallelExperts(num_experts, input_size, head_size, bias, no_random_init=True)
+        
+        self.fc1 = ParallelExperts(num_experts, input_size, head_size, bias, no_random_init=True)
         if hidden_size is None:
             hidden_size = head_size
-        self.down_proj = ParallelExperts(num_experts, hidden_size, input_size, bias, no_random_init=True)
+        self.fc2 = ParallelExperts(num_experts, hidden_size, input_size, bias, no_random_init=True)
         self.top_k = min(top_k, self.num_experts)
         self.activation = activation
 
@@ -337,11 +338,11 @@ class MoPhiFFNs(nn.Module):
         loss = self.compute_gate(x, skip_mask)
 
         expert_inputs = x[self.batch_index]
-        gate = self.gate_proj(expert_inputs, self.expert_size)
-        gate = self.activation(gate)
-        up = self.up_proj(expert_inputs, self.expert_size)
-        h = gate * up
-        expert_outputs = self.down_proj(h, self.expert_size)
+        
+        
+        up = self.fc1(expert_inputs, self.expert_size)
+        h = self.activation(up)
+        expert_outputs = self.fc2(h, self.expert_size)
 
         if multiply_by_gates:
             expert_outputs = expert_outputs * self.batch_gates[:, None]
@@ -391,9 +392,9 @@ class MoPhiFFNs(nn.Module):
         loss = self.compute_gate(x, skip_mask)
 
         expert_inputs = x[self.batch_index]
-        expert_outputs = self.gate_proj(expert_inputs, self.expert_size)
+        
+        expert_outputs = self.fc1(expert_inputs, self.expert_size)
         expert_outputs = self.activation(expert_outputs)
-        expert_outputs = self.up_proj(expert_inputs, self.expert_size) * expert_outputs
 
         zeros = torch.zeros((bsz * length * self.top_k, self.head_size), 
             dtype=expert_outputs.dtype, device=expert_outputs.device)
@@ -417,7 +418,7 @@ class MoPhiFFNs(nn.Module):
         x = x.reshape(-1, emb_size)
 
         expert_inputs = x[self.index_sorted_experts]
-        expert_outputs = self.down_proj(expert_inputs, self.expert_size)
+        expert_outputs = self.fc2(expert_inputs, self.expert_size)
         
         if multiply_by_gates:
             expert_outputs = expert_outputs * self.batch_gates[:, None]

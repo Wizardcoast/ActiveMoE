@@ -14,8 +14,8 @@ deepspeed --num_gpus 8 --master_port=9901 src/train_bash.py \
     --do_train \
     --template default\
     --cutoff_len 4096\
-    --model_name_or_path /cpfs01/projects-HDD/cfff-23ba4487e9df_HDD/wangzili/.cache/Llama-2-7b-hf\
-    --dataset_dir data\
+    --model_name_or_path /home/songyanggao/models/Llama-2-7b-chat-hf \
+    --dataset_dir data \
     --dataset wiki_demo \
     --learning_rate 5e-5\
     --overwrite_cache \
@@ -25,7 +25,7 @@ deepspeed --num_gpus 8 --master_port=9901 src/train_bash.py \
     --overwrite_output_dir True\
     --output_dir output_dense2moe\
     --Dense2MoE True\
-    --MoE_config_path /cpfs01/projects-HDD/cfff-23ba4487e9df_HDD/wangzili/LLaMA-Factory/configs/config.json\
+    --MoE_config_path /home/songyanggao/ActiveMoE/activeMoE/configs/config.json \
     --per_device_train_batch_size 1
 
 

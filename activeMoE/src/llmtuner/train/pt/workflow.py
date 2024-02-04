@@ -11,7 +11,8 @@ from llmtuner.train.utils import create_modelcard_and_push
 
 if TYPE_CHECKING:
     from transformers import Seq2SeqTrainingArguments, TrainerCallback
-    from llmtuner.hparams import ModelArguments, DataArguments, FinetuningArguments
+    from llmtuner.hparams import ModelArguments, DataArguments, FinetuningArguments, GeneratingArguments
+
 
 
 def run_pt(
@@ -19,9 +20,13 @@ def run_pt(
     data_args: "DataArguments",
     training_args: "Seq2SeqTrainingArguments",
     finetuning_args: "FinetuningArguments",
+    generating_args: "GeneratingArguments",
     callbacks: Optional[List["TrainerCallback"]] = None
 ):
+    # training_args = {**training_args, **generating_args}
     model, tokenizer = load_model_and_tokenizer(model_args, finetuning_args, training_args.do_train)
+    
+
     dataset = get_dataset(model_args, data_args)
     
     dataset = preprocess_dataset(dataset, tokenizer, data_args, training_args, stage="pt")
@@ -37,6 +42,7 @@ def run_pt(
         **split_dataset(dataset, data_args, training_args)
     )
 
+
     # Training
     if training_args.do_train:
         train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
@@ -48,6 +54,7 @@ def run_pt(
             plot_loss(training_args.output_dir, keys=["loss", "eval_loss"])
 
     # Evaluation
+    print('eval 2')
     if training_args.do_eval:
         metrics = trainer.evaluate(metric_key_prefix="eval")
         try:
@@ -60,4 +67,4 @@ def run_pt(
         trainer.save_metrics("eval", metrics)
 
     # Create model card
-    create_modelcard_and_push(trainer, model_args, data_args, training_args, finetuning_args)
+    # create_modelcard_and_push(trainer, model_args, data_args, training_args, finetuning_args)

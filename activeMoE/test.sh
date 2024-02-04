@@ -5,7 +5,6 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 #     mkdir -p ${output_dir}
 # fi
 
-
 ### pt demo
 
 ### 多机多卡，仍然有bug

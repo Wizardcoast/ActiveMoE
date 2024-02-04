@@ -1,0 +1,1493 @@
+[2024-01-28 15:27:21,318] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:23,635] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2024-01-28 15:27:23,635] [INFO] [runner.py:568:main] cmd = /home/songyanggao/miniconda3/envs/activemoe/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=9901 --enable_each_rank_log=None src/train_bash.py --deepspeed ds_zero3.json --stage pt --finetuning_type full --do_train --template default --cutoff_len 4096 --model_name_or_path /home/songyanggao/models/Llama-2-7b-chat-hf --dataset_dir data --dataset wiki_demo --learning_rate 5e-5 --overwrite_cache --num_train_epochs 1.0 --ddp_find_unused_parameters False --plot_loss --overwrite_output_dir True --output_dir output_dense2moe --Dense2MoE True --MoE_config_path /home/songyanggao/ActiveMoE/activeMoE/configs/config.json --per_device_train_batch_size 1 --do_sample True
+[2024-01-28 15:27:25,449] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:26,605] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2024-01-28 15:27:26,605] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=8, node_rank=0
+[2024-01-28 15:27:26,605] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2024-01-28 15:27:26,605] [INFO] [launch.py:163:main] dist_world_size=8
+[2024-01-28 15:27:26,606] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2024-01-28 15:27:43,794] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:43,834] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:43,850] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:43,939] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:43,950] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:44,131] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:44,170] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:44,182] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-01-28 15:27:53,723] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,729] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,770] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,794] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,808] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,808] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-01-28 15:27:53,810] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-01-28 15:27:53,810] [INFO] [comm.py:637:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:54 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:54 - INFO - llmtuner.model.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:54 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:54 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:54 - INFO - llmtuner.model.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:54 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:55 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:55 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Process rank: 4, device: cuda:4, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Process rank: 5, device: cuda:5, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=5,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=4,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:55 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Process rank: 6, device: cuda:6, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=6,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+01/28/2024 15:27:55 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Process rank: 7, device: cuda:7, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:55 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=7,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[2024-01-28 15:27:57,719] [INFO] [comm.py:637:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:57 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:57 - INFO - llmtuner.model.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:57 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-53_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2025] 2024-01-28 15:27:57,953 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2025] 2024-01-28 15:27:57,954 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2025] 2024-01-28 15:27:57,954 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2025] 2024-01-28 15:27:57,954 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2025] 2024-01-28 15:27:57,954 >> loading file tokenizer.json
+[INFO|configuration_utils.py:727] 2024-01-28 15:27:58,064 >> loading configuration file /home/songyanggao/models/Llama-2-7b-chat-hf/config.json
+[INFO|configuration_utils.py:792] 2024-01-28 15:27:58,065 >> Model config LlamaConfig {
+  "_name_or_path": "/home/songyanggao/models/Llama-2-7b-chat-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+[INFO|configuration_utils.py:727] 2024-01-28 15:27:58,078 >> loading configuration file /home/songyanggao/ActiveMoE/activeMoE/configs/config.json
+[INFO|configuration_utils.py:792] 2024-01-28 15:27:58,078 >> Model config MoLlamaConfig {
+  "acc_aux_loss": false,
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "aux_loss_type": "mi",
+  "aux_loss_weight": 0.01,
+  "bos_token_id": 1,
+  "enable_moe": true,
+  "eos_token_id": 2,
+  "expert_top_k": 2,
+  "first_init": true,
+  "gate_type": "linear",
+  "gating_dropout": 0.0,
+  "gating_size": 256,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "moe_layer_freq": 2,
+  "moe_start_layer": 28,
+  "num_attention_heads": 32,
+  "num_experts": 2,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 0,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "sample_topk": 0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.37.0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+[WARNING|modeling_utils.py:2920] 2024-01-28 15:27:58,078 >> The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[INFO|modeling_utils.py:3475] 2024-01-28 15:27:58,078 >> loading weights file /home/songyanggao/models/Llama-2-7b-chat-hf/model.safetensors.index.json
+[INFO|modeling_utils.py:3584] 2024-01-28 15:27:58,079 >> Detected DeepSpeed ZeRO-3: activating zero.init() for this model
+[INFO|configuration_utils.py:826] 2024-01-28 15:27:58,082 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 0
+}
+
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+01/28/2024 15:27:58 - WARNING - llmtuner.model.parser - We recommend enable mixed precision training.
+01/28/2024 15:27:58 - INFO - llmtuner.model.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: None
+01/28/2024 15:27:58 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=ds_zero3.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output_dense2moe/runs/Jan28_15-27-57_dgx-097,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output_dense2moe,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output_dense2moe,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+skip layer 28 MoE init due to first_init
+skip layer 28 MoE init due to first_init
+skip layer 28 MoE init due to first_initskip layer 28 MoE init due to first_init
+skip layer 30 MoE init due to first_init
+
+skip layer 28 MoE init due to first_init
+skip layer 30 MoE init due to first_init
+skip layer 28 MoE init due to first_initskip layer 28 MoE init due to first_init
+skip layer 30 MoE init due to first_init
+skip layer 30 MoE init due to first_init
+skip layer 30 MoE init due to first_init[2024-01-28 15:28:16,852] [INFO] [partition_parameters.py:349:__exit__] finished initializing model - num_params = 291, num_elems = 6.74B
+
+
+skip layer 28 MoE init due to first_init
+skip layer 30 MoE init due to first_init
+skip layer 30 MoE init due to first_initskip layer 30 MoE init due to first_init
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.54s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.54s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.53s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.57s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.68s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.60s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.75s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.93s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.77s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.77s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.81s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.78s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.77s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 18.99s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:39<00:00, 19.89s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:45<00:45, 45.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:01<00:00, 28.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:01<00:00, 30.85s/it]
+[INFO|modeling_utils.py:4352] 2024-01-28 15:29:19,823 >> All model checkpoint weights were used when initializing MoLlamaForCausalLM.
+
+[INFO|modeling_utils.py:4360] 2024-01-28 15:29:19,824 >> All the weights of MoLlamaForCausalLM were initialized from the model checkpoint at /home/songyanggao/models/Llama-2-7b-chat-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use MoLlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:779] 2024-01-28 15:29:19,843 >> loading configuration file /home/songyanggao/models/Llama-2-7b-chat-hf/generation_config.json
+[INFO|configuration_utils.py:826] 2024-01-28 15:29:19,843 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "pad_token_id": 32000
+}
+
+re-init MoE at layer 28re-init MoE at layer 28
+
+re-init MoE at layer 28
+re-init MoE at layer 28
+re-init MoE at layer 28re-init MoE at layer 28
+re-init MoE at layer 28
+re-init MoE at layer 28
+
+re-init MoE at layer 30
+re-init MoE at layer 30re-init MoE at layer 30
+
+re-init MoE at layer 30
+re-init MoE at layer 30
+re-init MoE at layer 30re-init MoE at layer 30
+
+re-init MoE at layer 30
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:27 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+01/28/2024 15:29:31 - INFO - llmtuner.model.loader - trainable params: 7008964608 || all params: 7008964608 || trainable%: 100.0000
+01/28/2024 15:29:31 - INFO - llmtuner.data.loader - Loading dataset wiki_demo.txt...
+Using custom data configuration default-287e3cf438ec0a9d
+Loading Dataset Infos from /home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/datasets/packaged_modules/text
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/songyanggao/.cache/huggingface/datasets/text/default-287e3cf438ec0a9d/0.0.0/c4a140d10f020282918b5dd1b8a49f0104729c6177f60a6b49ec2a365ec69f34
+Found cached dataset text (/home/songyanggao/.cache/huggingface/datasets/text/default-287e3cf438ec0a9d/0.0.0/c4a140d10f020282918b5dd1b8a49f0104729c6177f60a6b49ec2a365ec69f34)
+Loading Dataset info from /home/songyanggao/.cache/huggingface/datasets/text/default-287e3cf438ec0a9d/0.0.0/c4a140d10f020282918b5dd1b8a49f0104729c6177f60a6b49ec2a365ec69f34
+Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Caching processed dataset at /home/songyanggao/.cache/huggingface/datasets/text/default-287e3cf438ec0a9d/0.0.0/c4a140d10f020282918b5dd1b8a49f0104729c6177f60a6b49ec2a365ec69f34/cache-72c0cb04a8e1f96c.arrow
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:42<00:00,  4.75 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:42<00:00,  4.74 examples/s]
+input_ids:
+[1, 530, 1279, 1608, 338, 263, 8604, 22237, 322, 10298, 393, 338, 269, 1547, 936, 310, 14329, 322, 12560, 29879, 599, 5297, 1657, 653, 29892, 1302, 261, 455, 345, 7190, 310, 21277, 29889, 530, 1279, 1608, 5717, 363, 278, 25198, 654, 310, 278, 2106, 29892, 607, 372, 8640, 304, 367, 19039, 29892, 563, 267, 27797, 29892, 322, 10311, 1319, 29889, 1094, 263, 3603, 1711, 2175, 29899, 16958, 10298, 29892, 7180, 373, 278, 2215, 386, 342, 2175, 310, 278, 8604, 18272, 29892, 372, 338, 5491, 5439, 19963, 3817, 284, 1608, 322, 17176, 13956, 28579, 1608, 408, 278, 17176, 13956, 21612, 313, 492, 2151, 13956, 5264, 1608, 29897, 310, 278, 5264, 391, 10298, 29892, 322, 756, 263, 4549, 15839, 15477, 411, 9418, 29899, 5030, 2410, 1608, 322, 5264, 1608, 29889, 29950, 398, 550, 10600, 297, 5374, 20850, 1728, 11595, 6128, 1279, 583, 1472, 1434, 278, 25012, 310, 11595, 5922, 29892, 1855, 1516, 29892, 470, 3710, 2658, 29889, 2973, 278, 14451, 310, 2894, 3368, 6128, 1279, 936, 17873, 29892, 269, 1547, 293, 1608, 11183, 14329, 884, 11492, 29889, 8512, 26695, 310, 385, 1279, 391, 2714, 526, 1476, 10106, 4955, 29892, 5400, 385, 1279, 1608, 11176, 3192, 515, 278, 1174, 4366, 264, 358, 29889, 7133, 278, 7480, 4203, 310, 278, 29871, 29896, 29929, 386, 322, 278, 937, 1602, 3076, 310, 278, 29871, 29906, 29900, 386, 6462, 29892, 278, 385, 1279, 391, 10298, 1652, 473, 3276, 297, 1556, 5633, 310, 278, 3186, 322, 750, 263, 7282, 6297, 297, 17162, 29915, 10205, 793, 363, 953, 273, 7334, 362, 29889, 9586, 681, 385, 1279, 391, 12462, 310, 2714, 8429, 2645, 445, 3785, 29889, 530, 1279, 2879, 505, 4586, 760, 297, 3196, 19479, 29879, 29892, 1556, 451, 2197, 297, 278, 3681, 1876, 1540, 29892, 278, 10637, 12886, 3362, 322, 278, 10432, 12886, 3362, 29892, 5069, 1095, 10902, 278, 1095, 310, 278, 14499, 3152, 310, 385, 1279, 1608, 29889, 512, 278, 1833, 1602, 3076, 310, 278, 29871, 29906, 29900, 386, 322, 964, 278, 29871, 29906, 29896, 303, 6462, 29892, 278, 385, 1279, 391, 10298, 756, 1063, 620, 2007, 296, 2748, 901, 29889, 2744, 1279, 1608, 3710, 417, 952, 263, 6894, 537, 310, 28476, 1199, 297, 1797, 304, 5870, 967, 10839, 10614, 607, 508, 367, 7300, 368, 13055, 964, 19479, 653, 322, 14675, 653, 28476, 1199, 29936, 727, 338, 7282, 25457, 1546, 278, 1023, 29892, 607, 526, 13586, 29037, 573, 29889, 14595, 653, 28476, 1199, 12242, 304, 6963, 1623, 14329, 322, 2106, 29892, 2534, 4586, 263, 24252, 2507, 297, 278, 4940, 29892, 1550, 14675, 653, 28476, 1199, 12242, 304, 758, 4532, 825, 385, 385, 1279, 391, 12459, 723, 367, 763, 29889, 530, 1279, 391, 2714, 29892, 29035, 29892, 322, 7213, 11497, 505, 5318, 263, 760, 297, 16984, 10161, 310, 5199, 12459, 29889, 15976, 293, 1608, 310, 385, 1279, 1608, 3160, 16726, 393, 372, 338, 25106, 22435, 9696, 29892, 24252, 29892, 470, 318, 3332, 713, 29889, 29923, 29873, 962, 3002, 29892, 6624, 3002, 29892, 322, 5023, 450, 634, 962, 5996, 3978, 310, 385, 1279, 1608, 338, 515, 278, 530, 15566, 12311, 385, 935, 29882, 423, 29892, 6593, 376, 14037, 263, 364, 8584, 613, 13725, 310, 278, 10944, 385, 29899, 4852, 14037, 1159, 322, 278, 1734, 564, 15339, 359, 4852, 280, 1664, 29908, 470, 376, 29878, 8584, 2564, 450, 25557, 448, 1608, 20169, 278, 1957, 5996, 1857, 393, 5025, 2470, 385, 12040, 29889, 530, 1279, 1608, 5692, 297, 4223, 515, 29871, 29896, 29953, 29946, 29906, 408, 385, 1279, 6386, 322, 385, 12040, 515, 29871, 29896, 29945, 29941, 29929, 29936, 4688, 4223, 502, 1179, 19310, 3368, 263, 4060, 310, 766, 2098, 29889, 9586, 681, 2258, 1953, 2629, 278, 5176, 14595, 3858, 839, 1009, 23995, 1237, 408, 385, 1279, 2879, 29892, 5998, 2846, 1316, 28886, 7258, 1784, 8386, 411, 2678, 385, 1279, 2879, 29889, 9267, 19479, 4314, 310, 278, 29871, 29896, 29929, 386, 6462, 1316, 408, 4667, 4177, 5080, 313, 29896, 29955, 29945, 29953, 29994, 29896, 29947, 29941, 29953, 29897, 322, 10756, 28948, 1847, 313, 29896, 29947, 29900, 29947, 29994, 29896, 29947, 29955, 29896, 29897, 723, 29126, 304, 278, 385, 1279, 391, 437, 9988, 1475, 310, 278, 2446, 12623, 541, 1258, 451, 671, 385, 1279, 391, 470, 385, 1279, 1608, 297, 20766, 6053, 470, 1009, 17750, 29879, 29889, 1576, 937, 8604, 8578, 359, 13434, 304, 1246, 3654, 385, 385, 1279, 391, 3861, 471, 9181, 29899, 26473, 561, 1588, 2736, 27305, 313, 29896, 29947, 29900, 29929, 29994, 29896, 29947, 29953, 29945, 511, 2791, 292, 278, 11595, 12060, 310, 385, 1279, 1608, 297, 278, 7145, 29899, 29896, 29929, 386, 6462, 29889, 4001, 278, 29871, 29896, 29947, 29929, 29900, 29879, 322, 6763, 297, 3444, 29892, 17176, 13956, 1608, 756, 4049, 1063, 1304, 408, 263, 5222, 4735, 363, 385, 1279, 1608, 322, 967, 671, 408, 263, 5222, 4735, 338, 1603, 3619, 5377, 278, 3303, 3900, 29889, 3834, 502, 1179, 310, 17176, 13956, 1608, 2737, 304, 5375, 4695, 3889, 29899, 28549, 22237, 871, 29892, 322, 3889, 29899, 28549, 385, 1279, 1608, 297, 3153, 338, 1840, 287, 17176, 13956, 385, 1279, 1608, 29889, 8809, 488, 278, 1840, 17176, 13956, 756, 1063, 18425, 5222, 11428, 411, 385, 1279, 1608, 29892, 967, 6593, 756, 901, 10325, 21749, 3860, 411, 25734, 594, 3385, 515, 1957, 1189, 1711, 17508, 403, 6471, 29892, 3704, 1716, 278, 1570, 19941, 322, 17176, 13956, 28579, 2879, 29892, 1058, 437, 451, 25836, 6053, 411, 4148, 3673, 713, 5264, 2879, 470, 263, 325, 2375, 538, 6263, 29892, 322, 18677, 16375, 7866, 1338, 29892, 1058, 526, 19434, 15041, 411, 7631, 17176, 583, 29889, 19814, 29892, 777, 385, 1279, 2879, 671, 17176, 13956, 5264, 391, 304, 4772, 385, 1279, 1608, 29915, 29879, 8178, 378, 1333, 800, 322, 19310, 895, 967, 12368, 411, 5264, 1608, 29889, 530, 1279, 1608, 338, 7300, 368, 1304, 304, 8453, 278, 9418, 29899, 8921, 3673, 713, 21612, 310, 278, 5264, 391, 10298, 29889, 530, 1279, 1608, 338, 12814, 287, 304, 5264, 391, 7190, 607, 526, 2106, 29899, 12236, 287, 470, 515, 2038, 29889, 1102, 324, 1503, 310, 385, 1279, 1608, 6892, 12141, 385, 1279, 1608, 29915, 29879, 5264, 391, 16140, 322, 11164, 895, 14734, 472, 4969, 12658, 327, 290, 583, 1546, 278, 1023, 29889, 3834, 1364, 324, 1503, 8453, 385, 1279, 1608, 408, 2534, 1784, 7112, 2063, 515, 26054, 1608, 29892, 322, 1641, 1716, 7866, 1338, 322, 5264, 2879, 541, 901, 577, 29892, 1550, 1556, 1364, 324, 1503, 12560, 385, 1279, 29877, 29899, 5030, 2410, 1608, 408, 263, 19818, 11235, 310, 385, 1279, 391, 18671, 29889, 8809, 488, 19626, 304, 278, 2106, 338, 6555, 304, 385, 1279, 391, 2714, 29892, 16184, 385, 1279, 1608, 338, 451, 385, 4780, 3414, 363, 1364, 324, 1503, 29892, 408, 727, 338, 263, 3287, 310, 10679, 4249, 1364, 324, 1503, 322, 385, 1279, 2879, 373, 278, 4383, 29892, 322, 5164, 16256, 1237, 17189, 573, 385, 1279, 1608, 10029, 17587, 29889, 11019, 7403, 3245, 3161, 3160, 278, 674, 363, 263, 1661, 29899, 1111, 261, 455, 345, 12459, 29892, 278, 337, 6929, 310, 278, 2106, 7132, 2389, 29892, 278, 17750, 393, 5199, 5469, 6511, 25618, 304, 1863, 297, 470, 6728, 11183, 1316, 263, 1661, 29899, 1111, 261, 455, 345, 12459, 29892, 322, 263, 8998, 373, 920, 304, 1044, 304, 12359, 434, 278, 10839, 310, 385, 12040, 29889, 20570, 6572, 29899, 1545, 824, 3152, 10949, 278, 25012, 310, 20248, 322, 14368, 29892, 385, 7841, 14329, 1258, 451, 1863, 29889, 739, 471, 1156, 278, 11265, 310, 21561, 310, 14329, 393, 385, 1279, 4695, 7014, 5152, 26165, 408, 263, 19848, 29889, 450, 1556, 18697, 8303, 1295, 943, 304, 385, 1279, 1608, 297, 278, 12297, 3186, 892, 297, 7551, 322, 25549, 29889, 512, 7551, 29892, 11847, 936, 385, 1279, 1608, 313, 1552, 10679, 373, 278, 25204, 326, 4135, 310, 278, 2106, 29897, 471, 628, 457, 630, 491, 323, 6241, 391, 11847, 414, 796, 6905, 574, 796, 10774, 322, 997, 2112, 29875, 29889, 838, 549, 2975, 6639, 293, 1608, 29892, 323, 6241, 1608, 756, 1063, 1497, 304, 505, 750, 376, 4530, 928, 424, 23483, 800, 29908, 310, 385, 1279, 1608, 29889, 530, 1279, 293, 1098, 20816, 892, 884, 1616, 293, 7964, 491, 1020, 3192, 5834, 322, 11847, 414, 297, 25549, 29889, 319, 1968, 2904, 375, 322, 19122, 542, 793, 1304, 278, 22082, 310, 5459, 335, 650, 304, 28475, 278, 14529, 1546, 6865, 731, 491, 278, 2106, 322, 7333, 1120, 21926, 29889, 317, 8415, 1078, 1139, 287, 319, 6098, 713, 21142, 21003, 322, 1663, 12652, 373, 278, 1492, 310, 5375, 16082, 310, 27688, 29889, 315, 948, 1199, 18918, 287, 5199, 4307, 313, 11522, 359, 29897, 322, 6942, 21142, 1550, 1811, 304, 5735, 5034, 304, 5469, 313, 561, 4848, 467, 6639, 1199, 892, 2304, 573, 310, 263, 12459, 2729, 373, 6888, 7880, 322, 19780, 5302, 4249, 967, 18363, 1728, 278, 10122, 310, 263, 2106, 29889, 797, 27690, 4092, 29892, 727, 471, 694, 385, 1279, 4695, 6354, 5174, 777, 12066, 7492, 12962, 24147, 29889, 4525, 29892, 322, 916, 23772, 24147, 29892, 2678, 4846, 12060, 304, 12962, 385, 1279, 1608, 29889, 512, 278, 317, 294, 273, 713, 13378, 29892, 17326, 29881, 557, 2000, 363, 385, 8087, 284, 3673, 713, 12459, 322, 278, 25198, 654, 310, 1601, 12040, 29892, 871, 304, 367, 4720, 8283, 491, 18075, 476, 485, 328, 306, 29889, 797, 4886, 336, 29892, 12962, 21149, 29879, 758, 3791, 2750, 278, 2106, 29889, 512, 4092, 29892, 5164, 21149, 29879, 8906, 9418, 29899, 3859, 322, 17176, 13956, 260, 7158, 29889, 7493, 809, 287, 4066, 297, 9418, 339, 537, 2645, 278, 27263, 322, 297, 2024, 24284, 2645, 278, 830, 5404, 23119, 3161, 310, 9418, 29899, 8921, 3673, 713, 5226, 1070, 1608, 29892, 10734, 297, 3444, 29889, 1174, 4366, 264, 358, 18066, 267, 304, 29762, 14329, 313, 3471, 1070, 322, 12962, 29897, 322, 278, 19479, 29879, 310, 278, 29871, 29896, 29955, 29929, 29900, 29879, 322, 29871, 29896, 29947, 29946, 29947, 599, 805, 332, 1127, 278, 1957, 5996, 5849, 310, 825, 3897, 278, 3152, 310, 14499, 385, 1279, 1608, 29889, 2111, 824, 3152, 7133, 278, 5176, 14595, 29892, 760, 21603, 6471, 1316, 408, 278, 1174, 1431, 743, 322, 278, 29871, 4446, 263, 14712, 1298, 297, 278, 6013, 358, 362, 310, 9418, 29899, 3859, 322, 17097, 391, 2665, 7862, 29889, 450, 937, 385, 1279, 391, 16256, 1237, 8906, 10106, 278, 29871, 29896, 29947, 386, 6462, 408, 4667, 4177, 5080, 5152, 26165, 11847, 936, 385, 1279, 1608, 297, 5408, 29892, 3036, 635, 16000, 277, 326, 5921, 278, 2106, 29892, 5918, 624, 381, 1089, 29915, 29879, 7291, 282, 10511, 278, 982, 304, 5375, 1608, 322, 9181, 29899, 26473, 561, 1588, 2736, 27305, 29915, 29879, 6368, 310, 5478, 950, 1608, 1476, 19965, 488, 22473, 297, 3444, 29889, 2648, 278, 5683, 29871, 29896, 29947, 29955, 29900, 29879, 29892, 5164, 385, 1279, 391, 12462, 310, 2714, 750, 4953, 1532, 29899, 12119, 322, 263, 10742, 310, 769, 443, 1457, 1133, 14927, 5534, 4371, 10761, 515, 29871, 29896, 29947, 29947, 29900, 304, 29871, 29896, 29929, 29896, 29946, 29889, 910, 3152, 310, 14499, 385, 1279, 1608, 1833, 287, 2745, 278, 1095, 310, 278, 10432, 12886, 3362, 322, 338, 5545, 278, 22843, 5046, 310, 385, 1279, 1608, 29889, 16327, 515, 5478, 950, 1608, 29892, 13803, 29882, 737, 23336, 348, 262, 11091, 6314, 440, 391, 385, 1279, 1608, 322, 7802, 278, 4623, 24176, 1527, 29915, 29879, 7993, 29892, 263, 770, 15645, 9833, 2678, 2998, 408, 278, 3824, 4623, 393, 8429, 297, 29871, 29896, 29947, 29953, 29946, 304, 443, 568, 16984, 19479, 653, 16256, 1237, 29889, 450, 4623, 3897, 263, 7282, 8604, 4889, 29892, 411, 8425, 28579, 1641, 263, 8236, 4377, 322, 263, 4509, 310, 967, 4593, 8831, 29889, 23336, 348, 262, 29915, 29879, 2258, 428, 313, 1552, 435, 2002, 20438, 29897, 322, 1588, 2736, 27305, 29915, 29879, 1101, 414, 313, 1552, 5478, 950, 2879, 29897, 15869, 2106, 5264, 1608, 29892, 22545, 1218, 8604, 633, 303, 2509, 1608, 322, 2319, 2875, 4808, 886, 29889, 2860, 22773, 8937, 267, 29892, 278, 23336, 348, 262, 2879, 892, 1518, 14356, 515, 278, 4623, 491, 278, 28579, 2879, 472, 278, 29871, 29896, 29947, 29955, 29906, 379, 3437, 11559, 29889, 530, 1279, 2879, 892, 14914, 22829, 297, 278, 6440, 4623, 29892, 1641, 18973, 1518, 14356, 297, 29871, 29896, 29947, 29929, 29953, 29889, 23336, 348, 262, 5216, 5794, 25383, 393, 565, 19479, 4314, 17515, 3081, 491, 28579, 29915, 29879, 4958, 29892, 896, 723, 1095, 701, 278, 716, 260, 4316, 1934, 310, 17162, 29889, 512, 2933, 304, 1009, 1518, 25381, 515, 278, 3824, 4623, 29892, 385, 1279, 2879, 8429, 278, 624, 29889, 1954, 631, 4623, 29889, 7634, 278, 9949, 310, 5310, 476, 1336, 327, 9089, 29892, 263, 10637, 8578, 359, 13434, 322, 9638, 391, 29892, 385, 1279, 29877, 29899, 2055, 348, 1608, 975, 433, 2986, 411, 6314, 440, 1608, 29889, 530, 1279, 29877, 29899, 2055, 348, 2879, 29892, 1058, 15010, 8681, 12232, 515, 278, 29871, 29896, 29947, 29955, 29896, 3681, 1876, 1540, 29892, 22545, 630, 363, 3889, 12067, 362, 322, 363, 278, 4978, 310, 22535, 5034, 304, 697, 29915, 29879, 4225, 29889, 4178, 278, 2507, 310, 278, 6462, 29892, 385, 1279, 1608, 750, 9677, 599, 975, 278, 3186, 29889, 739, 471, 263, 18697, 4682, 310, 278, 6121, 22898, 936, 1608, 10298, 29889, 512, 7551, 29892, 2319, 6471, 310, 8041, 19673, 278, 5199, 4695, 410, 29899, 29879, 15277, 1873, 310, 385, 1279, 29877, 29899, 2055, 348, 1608, 29889, 20377, 471, 263, 7375, 17500, 363, 15121, 5481, 681, 12397, 515, 10916, 310, 278, 2215, 9755, 29892, 6427, 7807, 304, 278, 10369, 7483, 304, 6559, 29889, 512, 13548, 6813, 29892, 13798, 471, 263, 4549, 8948, 363, 385, 1279, 29877, 29899, 29879, 29891, 299, 936, 1608, 29892, 988, 372, 3897, 278, 1556, 19555, 2175, 29899, 16958, 1957, 3002, 29889, 7133, 445, 931, 29892, 263, 9461, 537, 310, 385, 1279, 2879, 16356, 28476, 1199, 310, 19479, 653, 8604, 21448, 29889, 910, 13705, 3897, 2998, 408, 13089, 5863, 310, 278, 316, 287, 29889, 450, 766, 14242, 358, 310, 278, 5176, 5264, 391, 10298, 964, 1784, 6471, 322, 278, 8225, 322, 429, 488, 310, 1784, 20473, 3163, 304, 6584, 284, 8104, 583, 1494, 278, 1462, 23881, 310, 278, 3681, 1876, 1540, 5025, 14076, 5375, 391, 8604, 4603, 322, 14741, 29889, 7753, 2466, 1784, 385, 1279, 2879, 1320, 8362, 6053, 515, 1438, 15115, 391, 14741, 29892, 3041, 25934, 2996, 2501, 278, 10298, 322, 14734, 892, 1754, 304, 19060, 963, 515, 3082, 5198, 16783, 29892, 3704, 278, 1954, 29885, 16783, 3185, 310, 29871, 29896, 29929, 29900, 29941, 29892, 884, 2000, 278, 530, 1279, 391, 1222, 10085, 3185, 29889, 1720, 12018, 1608, 471, 1790, 13705, 607, 777, 385, 1279, 2879, 16356, 2645, 445, 3785, 29889, 4002, 29886, 568, 21838, 29892, 385, 1279, 2879, 23644, 15736, 1711, 25223, 297, 278, 10637, 14595, 297, 19626, 304, 278, 8037, 10298, 29936, 3138, 29892, 896, 1539, 4023, 845, 1462, 23881, 1156, 278, 350, 3775, 354, 17064, 5874, 471, 16160, 3368, 29889, 21882, 385, 1279, 2879, 515, 5879, 307, 5105, 322, 25820, 27481, 304, 23961, 29892, 451, 2197, 8236, 304, 278, 476, 1617, 9516, 337, 12562, 291, 322, 405, 342, 272, 17232, 29882, 1217, 29915, 29879, 21117, 297, 278, 12362, 19833, 706, 29889, 2973, 278, 385, 1279, 2879, 1641, 2181, 15392, 297, 12710, 29892, 1023, 716, 3677, 389, 300, 936, 16256, 1237, 11176, 3192, 29892, 18451, 7481, 1608, 322, 14710, 6656, 385, 1279, 1608, 29889, 450, 4642, 18365, 304, 1653, 263, 16165, 261, 296, 2318, 393, 723, 5503, 363, 19479, 1550, 278, 7480, 892, 2750, 3099, 393, 723, 620, 6967, 263, 8604, 6263, 29889, 2823, 292, 278, 6879, 3842, 310, 278, 350, 3775, 354, 17064, 29879, 297, 278, 5533, 14595, 322, 278, 9819, 10637, 12886, 3362, 29892, 1784, 17162, 322, 5039, 2879, 6077, 304, 3817, 391, 13973, 607, 13631, 472, 278, 1518, 1947, 310, 385, 1279, 1608, 322, 916, 5264, 391, 24147, 29889, 512, 3444, 322, 278, 3303, 3900, 29892, 5144, 310, 4655, 22898, 936, 391, 24147, 1316, 408, 278, 4593, 24606, 362, 310, 29453, 322, 278, 12157, 9315, 5244, 414, 310, 278, 2787, 2175, 1009, 17459, 800, 322, 8772, 278, 20473, 391, 4623, 29889, 797, 278, 10432, 12886, 3362, 310, 29871, 29896, 29929, 29941, 29953, 29892, 385, 1279, 2879, 322, 22898, 936, 2879, 313, 13778, 29911, 322, 13515, 29902, 29897, 2748, 1449, 394, 2957, 6053, 411, 5164, 16256, 1237, 310, 2175, 2879, 29889, 319, 1472, 11399, 310, 10432, 385, 1279, 1608, 5331, 304, 385, 1279, 2879, 8743, 263, 282, 440, 7288, 6297, 297, 278, 1370, 29889, 512, 2933, 304, 278, 9987, 337, 12562, 291, 29892, 385, 385, 1279, 391, 29899, 262, 1028, 2859, 10298, 310, 1236, 294, 1934, 322, 17162, 29892, 6969, 491, 23926, 5549, 3173, 29892, 3614, 2761, 310, 12408, 322, 310, 2919, 10161, 310, 17692, 13616, 29892, 988, 896, 6314, 440, 3368, 278, 2982, 29889, 450, 15308, 7761, 4944, 777, 9078, 18872, 472, 278, 6763, 310, 278, 1370, 29892, 541, 278, 1121, 471, 263, 22773, 8589, 4249, 3817, 2879, 322, 385, 1279, 2879, 472, 263, 3652, 310, 4959, 4257, 2610, 24728, 408, 6936, 624, 25977, 1898, 304, 409, 675, 2761, 310, 278, 8063, 550, 29889, 6747, 29899, 4495, 3152, 2180, 278, 1095, 310, 2787, 3362, 1944, 29892, 278, 385, 1279, 391, 10298, 471, 2775, 873, 8062, 6419, 29889, 450, 29871, 29896, 29929, 29953, 29900, 29879, 16277, 287, 263, 6664, 2561, 310, 385, 1279, 1608, 29892, 5517, 8581, 491, 263, 17189, 2347, 10672, 310, 28579, 1608, 29994, 21515, 262, 1608, 322, 260, 5580, 4240, 491, 278, 26731, 3362, 29889, 7133, 445, 931, 29892, 385, 1279, 1608, 1476, 263, 10122, 297, 916, 24147, 12187, 7113, 1716, 7483, 1608, 322, 278, 2106, 1316, 408, 278, 9418, 29899, 29876, 1682, 1945, 29892, 29380, 29892, 322, 10776, 24147, 29892, 278, 6795, 29883, 12896, 310, 278, 29871, 29896, 29929, 29953, 29900, 29879, 29892, 322, 278, 1570, 19941, 29889, 739, 884, 4446, 263, 9558, 515, 967, 3517, 19479, 653, 5469, 304, 25725, 1230, 9418, 29899, 5030, 2410, 391, 11736, 1608, 29889, 530, 1279, 1608, 3897, 6942, 411, 21356, 1014, 29883, 12896, 408, 29455, 2164, 491, 22706, 1316, 408, 6781, 465, 322, 278, 21703, 349, 391, 3775, 29889, 450, 7841, 21991, 391, 260, 7158, 310, 385, 1279, 29874, 29899, 29888, 331, 262, 1608, 4133, 411, 14877, 473, 2645, 278, 1473, 10742, 310, 21991, 1608, 29889, 6054, 385, 1279, 1608, 4689, 304, 2125, 883, 472, 445, 931, 322, 28482, 385, 1279, 1608, 29915, 29879, 4337, 515, 263, 11652, 1760, 2200, 1261, 12122, 29889, 910, 22819, 2618, 411, 967, 10672, 304, 11581, 1020, 428, 297, 14299, 4092, 322, 967, 443, 1457, 1133, 14927, 3171, 297, 13548, 6813, 29889, 1433, 618, 278, 2507, 310, 278, 29871, 29906, 29896, 303, 6462, 29892, 385, 1279, 1608, 13631, 297, 5972, 537, 322, 9949, 2629, 9418, 29899, 5030, 2410, 391, 29892, 9418, 29899, 4495, 322, 9418, 29899, 10945, 4371, 24147, 29889, 530, 1279, 2879, 3897, 2998, 363, 1009, 5297, 29841, 297, 10021, 29879, 2750, 278, 2787, 27226, 9205, 2133, 313, 29956, 4986, 511, 278, 6431, 310, 382, 523, 322, 278, 2787, 12884, 293, 29474, 29889, 7133, 278, 10021, 29879, 29892, 594, 298, 542, 11822, 2222, 21560, 13840, 690, 2998, 408, 4628, 289, 2029, 29879, 17785, 297, 10107, 11427, 29892, 2875, 22104, 322, 24252, 21751, 800, 411, 278, 10974, 29889, 5901, 17459, 1288, 28476, 1199, 29323, 14561, 297, 445, 931, 3160, 2756, 13593, 6471, 29892, 6993, 9257, 322, 278, 671, 310, 27189, 1705, 3368, 5722, 11763, 1316, 408, 278, 4685, 29889, 319, 7282, 1741, 310, 445, 3785, 471, 278, 21751, 800, 472, 278, 29871, 29896, 29929, 29929, 29929, 27689, 399, 4986, 21362, 29889, 530, 1279, 391, 7014, 505, 1063, 7112, 2556, 297, 278, 5849, 310, 278, 796, 26347, 9395, 297, 12568, 322, 278, 19083, 20438, 310, 14299, 8713, 2849, 29892, 901, 15574, 2998, 408, 1528, 1645, 29892, 263, 316, 2114, 29877, 28273, 681, 5120, 297, 14622, 8713, 2849, 29889, 1349, 1774, 530, 1279, 391, 12462, 310, 2714, 505, 1063, 6892, 27831, 964, 1023, 1667, 15839, 3534, 2187, 29892, 5264, 385, 1279, 1608, 322, 5375, 391, 385, 1279, 1608, 29892, 8152, 292, 304, 1009, 1422, 1677, 1144, 29892, 1819, 322, 14675, 29889, 450, 5375, 391, 1857, 19310, 4637, 8178, 24169, 297, 9209, 292, 1791, 5270, 29879, 2501, 278, 3889, 5375, 29892, 1550, 278, 5264, 1857, 19310, 4637, 6374, 24169, 297, 12242, 292, 304, 6176, 278, 3889, 7037, 310, 12459, 1549, 17193, 322, 5264, 27428, 29889, 512, 263, 17168, 5996, 4060, 29892, 385, 1279, 1608, 508, 367, 10768, 287, 491, 278, 14499, 16256, 1237, 310, 278, 5683, 29871, 29896, 29929, 386, 6462, 322, 278, 1400, 29899, 1990, 936, 16256, 1237, 313, 273, 1279, 29874, 29899, 29888, 331, 262, 1608, 29892, 7933, 385, 1279, 1608, 29892, 322, 1400, 29899, 273, 1279, 1608, 29897, 8906, 727, 7045, 29889, 29933, 1032, 898, 278, 2702, 2258, 1953, 310, 385, 1279, 391, 24147, 607, 1040, 12356, 8604, 385, 1279, 1608, 12185, 11847, 936, 385, 1279, 1608, 607, 8640, 393, 278, 2106, 425, 4684, 14731, 25204, 326, 4135, 29892, 1728, 12695, 25967, 278, 10112, 1230, 310, 19479, 304, 27399, 372, 29889, 319, 4163, 7148, 310, 5375, 391, 385, 1279, 1608, 29892, 11847, 936, 385, 1279, 1608, 1122, 20341, 403, 278, 10379, 310, 263, 13114, 2106, 541, 16726, 393, 18363, 505, 694, 14731, 10788, 362, 304, 26449, 5874, 746, 372, 28792, 411, 5375, 1120, 21926, 29889, 530, 1279, 1608, 9744, 7282, 8570, 304, 14731, 6273, 1951, 11314, 1199, 505, 263, 6555, 6297, 297, 385, 1279, 391, 22237, 29889, 530, 1279, 1608, 29915, 29879, 19310, 275, 373, 9418, 29899, 5030, 2410, 1608, 29892, 8087, 284, 3673, 713, 1608, 29892, 322, 363, 278, 6081, 310, 7881, 322, 5375, 537, 6166, 372, 12435, 515, 385, 1279, 29877, 29899, 5030, 2410, 1608, 322, 916, 4072, 310, 17407, 17176, 13956, 1608, 29889, 2744, 1279, 1608, 338, 5491, 7180, 373, 278, 2215, 29899, 1563, 310, 278, 8604, 18272, 29889, 18927, 310, 967, 7766, 1199, 322, 11706, 22237, 9432, 9418, 29899, 8921, 3673, 713, 29892, 9418, 29899, 6112, 391, 29892, 17176, 13956, 29892, 322, 24818, 6613, 800, 310, 2175, 29899, 16958, 322, 5264, 391, 22661, 1316, 408, 6314, 440, 1608, 29892, 3817, 1608, 29892, 5375, 1608, 29892, 5478, 950, 1608, 29892, 322, 22898, 936, 1608, 29892, 4249, 916, 17176, 13956, 5264, 391, 17407, 25841, 29889, 1094, 385, 1279, 1608, 947, 451, 5957, 263, 4343, 3573, 310, 22542, 515, 263, 2323, 3153, 3186, 1493, 29892, 1784, 385, 1279, 391, 4072, 322, 3534, 2187, 1863, 322, 1197, 20850, 310, 385, 12040, 17089, 479, 17644, 29889, 3118, 19848, 2750, 21149, 13956, 1608, 2629, 278, 385, 1279, 391, 22591, 471, 385, 1279, 1608, 1728, 594, 622, 3145, 29892, 263, 1246, 363, 20341, 362, 322, 20107, 4249, 385, 1279, 2879, 937, 16356, 491, 17993, 323, 2749, 1458, 628, 341, 29976, 1758, 324, 297, 29871, 29896, 29947, 29947, 29929, 297, 2933, 304, 278, 22773, 2553, 1078, 310, 385, 1279, 391, 6368, 472, 278, 931, 29889, 3741, 2575, 297, 8604, 302, 4861, 309, 1608, 756, 1063, 5152, 26165, 491, 385, 1279, 2879, 29889, 19454, 23683, 29892, 278, 5164, 385, 1279, 391, 12462, 310, 2714, 526, 451, 3595, 408, 8359, 16212, 541, 3265, 408, 260, 7158, 393, 1006, 4056, 280, 322, 526, 6631, 1549, 263, 731, 310, 9090, 18671, 1316, 408, 5375, 322, 1887, 1120, 21926, 29892, 5478, 950, 16226, 29892, 3564, 24788, 29892, 3817, 284, 1261, 25804, 29892, 925, 2164, 14329, 322, 27189, 1705, 4371, 29889, 2385, 936, 512, 1547, 573, 16256, 1237, 4249, 14499, 385, 1279, 391, 16256, 1237, 892, 5478, 950, 1608, 322, 5375, 1608, 29889, 2688, 892, 5643, 491, 278, 4655, 16256, 1237, 310, 5264, 385, 1279, 1608, 313, 15914, 440, 391, 29892, 3817, 391, 322, 22898, 936, 391, 467, 2688, 1163, 373, 17459, 1288, 322, 17407, 21420, 310, 1009, 10839, 12459, 29889, 29924, 329, 950, 1608, 338, 385, 29871, 29896, 29947, 386, 29899, 27371, 17407, 6368, 393, 471, 8906, 964, 385, 1279, 391, 6368, 491, 9181, 29899, 26473, 561, 1588, 2736, 27305, 29889, 8011, 263, 9893, 3160, 9522, 771, 12690, 29892, 3889, 15477, 29892, 27081, 653, 8078, 29892, 12067, 362, 322, 1601, 300, 653, 11736, 310, 1716, 16200, 322, 27550, 393, 723, 367, 1072, 7964, 491, 263, 9124, 310, 278, 2305, 29889, 20749, 950, 1608, 756, 1063, 3240, 1883, 1103, 3598, 2931, 3368, 408, 1957, 1189, 1711, 24046, 1546, 5375, 391, 322, 6314, 440, 391, 7190, 310, 385, 1279, 1608, 29889, 512, 1724, 1317, 9079, 29973, 313, 29896, 29947, 29946, 29900, 511, 1588, 2736, 27305, 937, 2931, 3368, 670, 7306, 408, 263, 376, 22585, 883, 310, 12459, 29892, 278, 14710, 6656, 310, 3817, 1608, 322, 2875, 1213, 24930, 440, 391, 385, 1279, 1608, 338, 263, 19479, 653, 5264, 391, 883, 310, 385, 1279, 1608, 15574, 6942, 411, 13803, 29882, 737, 23336, 348, 262, 29889, 24930, 440, 391, 385, 1279, 2879, 22545, 403, 6314, 573, 27428, 310, 278, 2794, 310, 5802, 607, 338, 278, 272, 3368, 304, 367, 14363, 1549, 24252, 19479, 322, 393, 17162, 367, 12530, 5034, 304, 931, 3796, 29892, 3265, 1135, 22535, 1641, 13235, 5034, 304, 817, 408, 297, 3817, 1608, 29889, 24930, 440, 391, 385, 1279, 1608, 28811, 19963, 28579, 1608, 541, 22225, 278, 9657, 1061, 3527, 310, 278, 410, 1026, 29294, 15020, 278, 8703, 28579, 391]
+inputs:
+<s> Anarchism is a political philosophy and movement that is sceptical of authority and rejects all involuntary, coercive forms of hierarchy. Anarchism calls for the abolition of the state, which it holds to be unnecessary, undesirable, and harmful. As a historically left-wing movement, placed on the farthest left of the political spectrum, it is usually described alongside communalism and libertarian Marxism as the libertarian wing (libertarian socialism) of the socialist movement, and has a strong historical association with anti-capitalism and socialism.Humans lived in societies without formal hierarchies long before the establishment of formal states, realms, or empires. With the rise of organised hierarchical bodies, scepticism toward authority also rose. Although traces of anarchist thought are found throughout history, modern anarchism emerged from the Enlightenment. During the latter half of the 19th and the first decades of the 20th century, the anarchist movement flourished in most parts of the world and had a significant role in workers' struggles for emancipation. Various anarchist schools of thought formed during this period. Anarchists have taken part in several revolutions, most notably in the Paris Commune, the Russian Civil War and the Spanish Civil War, whose end marked the end of the classical era of anarchism. In the last decades of the 20th and into the 21st century, the anarchist movement has been resurgent once more.Anarchism employs a diversity of tactics in order to meet its ideal ends which can be broadly separated into revolutionary and evolutionary tactics; there is significant overlap between the two, which are merely descriptive. Revolutionary tactics aim to bring down authority and state, having taken a violent turn in the past, while evolutionary tactics aim to prefigure what an anarchist society would be like. Anarchist thought, criticism, and praxis have played a part in diverse areas of human society. Criticism of anarchism include claims that it is internally inconsistent, violent, or utopian.Etymology, terminology, and definition The etymological origin of anarchism is from the Ancient Greek anarkhia, meaning "without a ruler", composed of the prefix an- ("without") and the word arkhos ("leader" or "ruler"). The suffix -ism denotes the ideological current that favours anarchy. Anarchism appears in English from 1642 as anarchisme and anarchy from 1539; early English usages emphasised a sense of disorder. Various factions within the French Revolution labelled their opponents as anarchists, although few such accused shared many views with later anarchists. Many revolutionaries of the 19th century such as William Godwin (1756–1836) and Wilhelm Weitling (1808–1871) would contribute to the anarchist doctrines of the next generation but did not use anarchist or anarchism in describing themselves or their beliefs.The first political philosopher to call himself an anarchist () was Pierre-Joseph Proudhon (1809–1865), marking the formal birth of anarchism in the mid-19th century. Since the 1890s and beginning in France, libertarianism has often been used as a synonym for anarchism and its use as a synonym is still common outside the United States. Some usages of libertarianism refer to individualistic free-market philosophy only, and free-market anarchism in particular is termed libertarian anarchism.While the term libertarian has been largely synonymous with anarchism, its meaning has more recently diluted with wider adoption from ideologically disparate groups, including both the New Left and libertarian Marxists, who do not associate themselves with authoritarian socialists or a vanguard party, and extreme cultural liberals, who are primarily concerned with civil liberties. Additionally, some anarchists use libertarian socialist to avoid anarchism's negative connotations and emphasise its connections with socialism. Anarchism is broadly used to describe the anti-authoritarian wing of the socialist movement. Anarchism is contrasted to socialist forms which are state-oriented or from above. Scholars of anarchism generally highlight anarchism's socialist credentials and criticise attempts at creating dichotomies between the two. Some scholars describe anarchism as having many influences from liberalism, and being both liberals and socialists but more so, while most scholars reject anarcho-capitalism as a misunderstanding of anarchist principles.While opposition to the state is central to anarchist thought, defining anarchism is not an easy task for scholars, as there is a lot of discussion among scholars and anarchists on the matter, and various currents perceive anarchism slightly differently. Major definitional elements include the will for a non-coercive society, the rejection of the state apparatus, the belief that human nature allows humans to exist in or progress toward such a non-coercive society, and a suggestion on how to act to pursue the ideal of anarchy.HistoryPre-modern era Before the establishment of towns and cities, an established authority did not exist. It was after the creation of institutions of authority that anarchistic ideas espoused as a reaction. The most notable precursors to anarchism in the ancient world were in China and Greece. In China, philosophical anarchism (the discussion on the legitimacy of the state) was delineated by Taoist philosophers Zhuang Zhou and Laozi. Alongside Stoicism, Taoism has been said to have had "significant anticipations" of anarchism. Anarchic attitudes were also articulated by tragedians and philosophers in Greece. Aeschylus and Sophocles used the myth of Antigone to illustrate the conflict between rules set by the state and personal autonomy. Socrates questioned Athenian authorities constantly and insisted on the right of individual freedom of conscience. Cynics dismissed human law (nomos) and associated authorities while trying to live according to nature (physis). Stoics were supportive of a society based on unofficial and friendly relations among its citizens without the presence of a state.In medieval Europe, there was no anarchistic activity except some ascetic religious movements. These, and other Muslim movements, later gave birth to religious anarchism. In the Sasanian Empire, Mazdak called for an egalitarian society and the abolition of monarchy, only to be soon executed by Emperor Kavad I.In Basra, religious sects preached against the state. In Europe, various sects developed anti-state and libertarian tendencies. Renewed interest in antiquity during the Renaissance and in private judgment during the Reformation restored elements of anti-authoritarian secularism, particularly in France. Enlightenment challenges to intellectual authority (secular and religious) and the revolutions of the 1790s and 1848 all spurred the ideological development of what became the era of classical anarchism.Modern era During the French Revolution, partisan groups such as the Enragés and the  saw a turning point in the fermentation of anti-state and federalist sentiments. The first anarchist currents developed throughout the 18th century as William Godwin espoused philosophical anarchism in England, morally delegitimising the state, Max Stirner's thinking paved the way to individualism and Pierre-Joseph Proudhon's theory of mutualism found fertile soil in France. By the late 1870s, various anarchist schools of thought had become well-defined and a wave of then unprecedented globalisation occurred from 1880 to 1914. This era of classical anarchism lasted until the end of the Spanish Civil War and is considered the golden age of anarchism.Drawing from mutualism, Mikhail Bakunin founded collectivist anarchism and entered the International Workingmen's Association, a class worker union later known as the First International that formed in 1864 to unite diverse revolutionary currents. The International became a significant political force, with Karl Marx being a leading figure and a member of its General Council. Bakunin's faction (the Jura Federation) and Proudhon's followers (the mutualists) opposed state socialism, advocating political abstentionism and small property holdings. After bitter disputes, the Bakuninists were expelled from the International by the Marxists at the 1872 Hague Congress. Anarchists were treated similarly in the Second International, being ultimately expelled in 1896. Bakunin famously predicted that if revolutionaries gained power by Marx's terms, they would end up the new tyrants of workers. In response to their expulsion from the First International, anarchists formed the St. Imier International. Under the influence of Peter Kropotkin, a Russian philosopher and scientist, anarcho-communism overlapped with collectivism. Anarcho-communists, who drew inspiration from the 1871 Paris Commune, advocated for free federation and for the distribution of goods according to one's needs.At the turn of the century, anarchism had spread all over the world. It was a notable feature of the international syndicalism movement. In China, small groups of students imported the humanistic pro-science version of anarcho-communism. Tokyo was a hotspot for rebellious youth from countries of the far east, travelling to the Japanese capital to study. In Latin America, Argentina was a stronghold for anarcho-syndicalism, where it became the most prominent left-wing ideology. During this time, a minority of anarchists adopted tactics of revolutionary political violence. This strategy became known as propaganda of the deed. The dismemberment of the French socialist movement into many groups and the execution and exile of many Communards to penal colonies following the suppression of the Paris Commune favoured individualist political expression and acts. Even though many anarchists distanced themselves from these terrorist acts, infamy came upon the movement and attempts were made to exclude them from American immigration, including the Immigration Act of 1903, also called the Anarchist Exclusion Act. Illegalism was another strategy which some anarchists adopted during this period.Despite concerns, anarchists enthusiastically participated in the Russian Revolution in opposition to the White movement; however, they met harsh suppression after the Bolshevik government was stabilised. Several anarchists from Petrograd and Moscow fled to Ukraine, notably leading to the Kronstadt rebellion and Nestor Makhno's struggle in the Free Territory. With the anarchists being crushed in Russia, two new antithetical currents emerged, namely platformism and synthesis anarchism. The former sought to create a coherent group that would push for revolution while the latter were against anything that would resemble a political party. Seeing the victories of the Bolsheviks in the October Revolution and the resulting Russian Civil War, many workers and activists turned to communist parties which grew at the expense of anarchism and other socialist movements. In France and the United States, members of major syndicalist movements such as the General Confederation of Labour and the Industrial Workers of the World left their organisations and joined the Communist International.In the Spanish Civil War of 1936, anarchists and syndicalists (CNT and FAI) once again allied themselves with various currents of leftists. A long tradition of Spanish anarchism led to anarchists playing a pivotal role in the war. In response to the army rebellion, an anarchist-inspired movement of peasants and workers, supported by armed militias, took control of Barcelona and of large areas of rural Spain, where they collectivised the land. The Soviet Union provided some limited assistance at the beginning of the war, but the result was a bitter fight among communists and anarchists at a series of events named May Days as Joseph Stalin tried to seize control of the Republicans.Post-war era At the end of World War II, the anarchist movement was severely weakened. The 1960s witnessed a revival of anarchism, likely caused by a perceived failure of Marxism–Leninism and tensions built by the Cold War. During this time, anarchism found a presence in other movements critical towards both capitalism and the state such as the anti-nuclear, environmental, and peace movements, the counterculture of the 1960s, and the New Left. It also saw a transition from its previous revolutionary nature to provocative anti-capitalist reformism. Anarchism became associated with punk subculture as exemplified by bands such as Crass and the Sex Pistols. The established feminist tendencies of anarcha-feminism returned with vigour during the second wave of feminism. Black anarchism began to take form at this time and influenced anarchism's move from a Eurocentric demographic. This coincided with its failure to gain traction in Northern Europe and its unprecedented height in Latin America.Around the turn of the 21st century, anarchism grew in popularity and influence within anti-capitalist, anti-war and anti-globalisation movements. Anarchists became known for their involvement in protests against the World Trade Organization (WTO), the Group of Eight and the World Economic Forum. During the protests, ad hoc leaderless anonymous cadres known as black blocs engaged in rioting, property destruction and violent confrontations with the police. Other organisational tactics pioneered in this time include affinity groups, security culture and the use of decentralised technologies such as the Internet. A significant event of this period was the confrontations at the 1999 Seattle WTO conference. Anarchist ideas have been influential in the development of the Zapatistas in Mexico and the Democratic Federation of Northern Syria, more commonly known as Rojava, a de facto autonomous region in northern Syria.Thought Anarchist schools of thought have been generally grouped into two main historical traditions, social anarchism and individualist anarchism, owing to their different origins, values and evolution. The individualist current emphasises negative liberty in opposing restraints upon the free individual, while the social current emphasises positive liberty in aiming to achieve the free potential of society through equality and social ownership. In a chronological sense, anarchism can be segmented by the classical currents of the late 19th century and the post-classical currents (anarcha-feminism, green anarchism, and post-anarchism) developed thereafter.Beyond the specific factions of anarchist movements which constitute political anarchism lies philosophical anarchism which holds that the state lacks moral legitimacy, without necessarily accepting the imperative of revolution to eliminate it. A component especially of individualist anarchism, philosophical anarchism may tolerate the existence of a minimal state but claims that citizens have no moral obligation to obey government when it conflicts with individual autonomy. Anarchism pays significant attention to moral arguments since ethics have a central role in anarchist philosophy. Anarchism's emphasis on anti-capitalism, egalitarianism, and for the extension of community and individuality sets it apart from anarcho-capitalism and other types of economic libertarianism.Anarchism is usually placed on the far-left of the political spectrum. Much of its economics and legal philosophy reflect anti-authoritarian, anti-statist, libertarian, and radical interpretations of left-wing and socialist politics such as collectivism, communism, individualism, mutualism, and syndicalism, among other libertarian socialist economic theories. As anarchism does not offer a fixed body of doctrine from a single particular worldview, many anarchist types and traditions exist and varieties of anarchy diverge widely. One reaction against sectarianism within the anarchist milieu was anarchism without adjectives, a call for toleration and unity among anarchists first adopted by Fernando Tarrida del Mármol in 1889 in response to the bitter debates of anarchist theory at the time. Belief in political nihilism has been espoused by anarchists. Despite separation, the various anarchist schools of thought are not seen as distinct entities but rather as tendencies that intermingle and are connected through a set of uniform principles such as individual and local autonomy, mutual aid, network organisation, communal democracy, justified authority and decentralisation.Classical Inceptive currents among classical anarchist currents were mutualism and individualism. They were followed by the major currents of social anarchism (collectivist, communist and syndicalist). They differ on organisational and economic aspects of their ideal society.Mutualism is an 18th-century economic theory that was developed into anarchist theory by Pierre-Joseph Proudhon. Its aims include reciprocity, free association, voluntary contract, federation and monetary reform of both credit and currency that would be regulated by a bank of the people. Mutualism has been retrospectively characterised as ideologically situated between individualist and collectivist forms of anarchism. In What Is Property? (1840), Proudhon first characterised his goal as a "third form of society, the synthesis of communism and property." Collectivist anarchism is a revolutionary socialist form of anarchism commonly associated with Mikhail Bakunin. Collectivist anarchists advocate collective ownership of the means of production which is theorised to be achieved through violent revolution and that workers be paid according to time worked, rather than goods being distributed according to need as in communism. Collectivist anarchism arose alongside Marxism but rejected the dictatorship of the proletariat despite the stated Marxist
+[2024-01-28 15:30:15,797] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.1, git-hash=unknown, git-branch=unknown
+[2024-01-28 15:30:15,804] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-01-28 15:30:15,831] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-01-28 15:30:15,831] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-01-28 15:30:15,866] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-01-28 15:30:15,871] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-01-28 15:30:15,871] [INFO] [logging.py:96:log_dist] [Rank 0] Creating fp16 ZeRO stage 3 optimizer, MiCS is enabled False, Hierarchical params gather False
+[2024-01-28 15:30:15,871] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float32 ZeRO stage 3 optimizer
+[2024-01-28 15:30:16,592] [INFO] [utils.py:791:see_memory_usage] Stage 3 initialize beginning
+[2024-01-28 15:30:16,616] [INFO] [utils.py:792:see_memory_usage] MA 3.17 GB         Max_MA 4.81 GB         CA 4.16 GB         Max_CA 8 GB 
+[2024-01-28 15:30:16,622] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 75.28 GB, percent = 3.7%
+[2024-01-28 15:30:16,624] [INFO] [stage3.py:128:__init__] Reduce bucket size 500,000,000
+[2024-01-28 15:30:16,633] [INFO] [stage3.py:129:__init__] Prefetch bucket size 50,000,000
+[2024-01-28 15:30:17,330] [INFO] [utils.py:791:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2024-01-28 15:30:17,346] [INFO] [utils.py:792:see_memory_usage] MA 3.17 GB         Max_MA 3.17 GB         CA 4.16 GB         Max_CA 4 GB 
+[2024-01-28 15:30:17,346] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 75.29 GB, percent = 3.7%
+Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:45<00:00,  4.36 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:45<00:00,  4.35 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:45<00:00,  4.35 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:45<00:00,  4.35 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.35 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.34 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.33 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.33 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.28 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:46<00:00,  4.27 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:47<00:00,  4.25 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:47<00:00,  4.25 examples/s]
+Running tokenizer on dataset: 100%|██████████| 200/200 [00:47<00:00,  4.24 examples/s]Running tokenizer on dataset: 100%|██████████| 200/200 [00:47<00:00,  4.23 examples/s]
+Parameter Offload: Total persistent parameters: 282624 in 67 params
+[2024-01-28 15:31:07,613] [INFO] [utils.py:791:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2024-01-28 15:31:07,630] [INFO] [utils.py:792:see_memory_usage] MA 3.42 GB         Max_MA 3.76 GB         CA 4.83 GB         Max_CA 5 GB 
+[2024-01-28 15:31:07,630] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.18 GB, percent = 2.9%
+[2024-01-28 15:31:08,077] [INFO] [utils.py:791:see_memory_usage] Before creating fp16 partitions
+[2024-01-28 15:31:08,078] [INFO] [utils.py:792:see_memory_usage] MA 3.42 GB         Max_MA 3.42 GB         CA 4.83 GB         Max_CA 5 GB 
+[2024-01-28 15:31:08,078] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.18 GB, percent = 2.9%
+[2024-01-28 15:31:21,099] [INFO] [utils.py:791:see_memory_usage] After creating fp16 partitions: 2
+[2024-01-28 15:31:21,122] [INFO] [utils.py:792:see_memory_usage] MA 3.42 GB         Max_MA 3.42 GB         CA 6.18 GB         Max_CA 6 GB 
+[2024-01-28 15:31:21,122] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.19 GB, percent = 2.9%
+[2024-01-28 15:31:21,563] [INFO] [utils.py:791:see_memory_usage] Before creating fp32 partitions
+[2024-01-28 15:31:21,563] [INFO] [utils.py:792:see_memory_usage] MA 3.42 GB         Max_MA 3.42 GB         CA 6.18 GB         Max_CA 6 GB 
+[2024-01-28 15:31:21,564] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.19 GB, percent = 2.9%
+[2024-01-28 15:31:22,014] [INFO] [utils.py:791:see_memory_usage] After creating fp32 partitions
+[2024-01-28 15:31:22,014] [INFO] [utils.py:792:see_memory_usage] MA 6.68 GB         Max_MA 6.68 GB         CA 9.45 GB         Max_CA 9 GB 
+[2024-01-28 15:31:22,015] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.19 GB, percent = 2.9%
+[2024-01-28 15:31:22,449] [INFO] [utils.py:791:see_memory_usage] Before initializing optimizer states
+[2024-01-28 15:31:22,466] [INFO] [utils.py:792:see_memory_usage] MA 6.68 GB         Max_MA 6.68 GB         CA 9.45 GB         Max_CA 9 GB 
+[2024-01-28 15:31:22,466] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.44 GB, percent = 2.9%
+[2024-01-28 15:31:23,089] [INFO] [utils.py:791:see_memory_usage] After initializing optimizer states
+[2024-01-28 15:31:23,115] [INFO] [utils.py:792:see_memory_usage] MA 13.21 GB         Max_MA 19.73 GB         CA 22.51 GB         Max_CA 23 GB 
+[2024-01-28 15:31:23,116] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.47 GB, percent = 3.0%
+[2024-01-28 15:31:23,116] [INFO] [stage3.py:482:_setup_for_real_optimizer] optimizer state initialized
+[2024-01-28 15:31:24,179] [INFO] [utils.py:791:see_memory_usage] After initializing ZeRO optimizer
+[2024-01-28 15:31:24,190] [INFO] [utils.py:792:see_memory_usage] MA 18.33 GB         Max_MA 19.31 GB         CA 28.23 GB         Max_CA 28 GB 
+[2024-01-28 15:31:24,190] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 59.64 GB, percent = 3.0%
+[2024-01-28 15:31:24,190] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-01-28 15:31:24,191] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-01-28 15:31:24,191] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-01-28 15:31:24,191] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05, 5e-05], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2024-01-28 15:31:24,192] [INFO] [config.py:984:print] DeepSpeedEngine configuration:
+[2024-01-28 15:31:24,192] [INFO] [config.py:988:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-01-28 15:31:24,192] [INFO] [config.py:988:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-01-28 15:31:24,192] [INFO] [config.py:988:print]   amp_enabled .................. False
+[2024-01-28 15:31:24,192] [INFO] [config.py:988:print]   amp_params ................... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   bfloat16_enabled ............. False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   checkpoint_parallel_write_pipeline  False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   checkpoint_tag_validation_enabled  True
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   checkpoint_tag_validation_fail  False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x15549698f760>
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   communication_data_type ...... None
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   curriculum_enabled_legacy .... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   curriculum_params_legacy ..... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   data_efficiency_enabled ...... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   dataloader_drop_last ......... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   disable_allgather ............ False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   dump_state ................... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   dynamic_loss_scale_args ...... None
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_enabled ........... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_gas_boundary_resolution  1
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_layer_num ......... 0
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_max_iter .......... 100
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_stability ......... 1e-06
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_tol ............... 0.01
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   eigenvalue_verbose ........... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   elasticity_enabled ........... False
+[2024-01-28 15:31:24,193] [INFO] [config.py:988:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   fp16_auto_cast ............... None
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   fp16_enabled ................. False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   fp16_master_weights_and_gradients  False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   global_rank .................. 0
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   grad_accum_dtype ............. None
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   gradient_accumulation_steps .. 1
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   gradient_clipping ............ 1.0
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   gradient_predivide_factor .... 1.0
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   graph_harvesting ............. False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   initial_dynamic_scale ........ 65536
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   load_universal_checkpoint .... False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   loss_scale ................... 0
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   memory_breakdown ............. False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   mics_hierarchial_params_gather  False
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   mics_shard_size .............. -1
+[2024-01-28 15:31:24,194] [INFO] [config.py:988:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   optimizer_legacy_fusion ...... False
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   optimizer_name ............... None
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   optimizer_params ............. None
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-01-28 15:31:24,196] [INFO] [config.py:988:print]   pld_enabled .................. False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   pld_params ................... False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   prescale_gradients ........... False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   scheduler_name ............... None
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   scheduler_params ............. None
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   seq_parallel_communication_data_type  torch.float32
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   sparse_attention ............. None
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   sparse_gradients_enabled ..... False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   steps_per_print .............. inf
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   train_batch_size ............. 8
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   train_micro_batch_size_per_gpu  1
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   use_data_before_expert_parallel_  False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   use_node_local_storage ....... False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   wall_clock_breakdown ......... False
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   weight_quantization_config ... None
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   world_size ................... 8
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   zero_allow_untested_optimizer  True
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=True stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   zero_enabled ................. True
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   zero_force_ds_cpu_optimizer .. True
+[2024-01-28 15:31:24,197] [INFO] [config.py:988:print]   zero_optimization_stage ...... 3
+[2024-01-28 15:31:24,197] [INFO] [config.py:974:print_user_config]   json = {
+    "train_batch_size": 8, 
+    "train_micro_batch_size_per_gpu": 1, 
+    "gradient_accumulation_steps": 1, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "stage3_gather_16bit_weights_on_model_save": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": false
+    }
+}
+[INFO|trainer.py:1721] 2024-01-28 15:31:24,197 >> ***** Running training *****
+[INFO|trainer.py:1722] 2024-01-28 15:31:24,197 >>   Num examples = 363
+[INFO|trainer.py:1723] 2024-01-28 15:31:24,197 >>   Num Epochs = 1
+[INFO|trainer.py:1724] 2024-01-28 15:31:24,197 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:1727] 2024-01-28 15:31:24,197 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:1728] 2024-01-28 15:31:24,197 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1729] 2024-01-28 15:31:24,198 >>   Total optimization steps = 46
+[INFO|trainer.py:1730] 2024-01-28 15:31:24,199 >>   Number of trainable parameters = 7,008,964,608
+01/28/2024 15:31:24 - WARNING - llmtuner.extras.callbacks - Previous log file in this folder will be deleted.
+  0%|          | 0/46 [00:00<?, ?it/s]/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/home/songyanggao/miniconda3/envs/activemoe/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+  2%|▏         | 1/46 [00:18<13:54, 18.55s/it]  4%|▍         | 2/46 [00:24<08:18, 11.32s/it]  7%|▋         | 3/46 [00:30<06:16,  8.76s/it]  9%|▊         | 4/46 [00:36<05:17,  7.56s/it] 11%|█         | 5/46 [00:42<04:43,  6.92s/it] 13%|█▎        | 6/46 [00:47<04:20,  6.52s/it] 15%|█▌        | 7/46 [00:53<04:03,  6.25s/it] 17%|█▋        | 8/46 [00:59<03:51,  6.09s/it] 20%|█▉        | 9/46 [01:04<03:41,  5.98s/it] 22%|██▏       | 10/46 [01:10<03:32,  5.90s/it] 24%|██▍       | 11/46 [01:16<03:24,  5.85s/it] 26%|██▌       | 12/46 [01:22<03:17,  5.81s/it] 28%|██▊       | 13/46 [01:27<03:11,  5.79s/it] 30%|███       | 14/46 [01:33<03:04,  5.76s/it] 33%|███▎      | 15/46 [01:39<02:58,  5.76s/it] 35%|███▍      | 16/46 [01:45<02:52,  5.74s/it] 37%|███▋      | 17/46 [01:50<02:46,  5.74s/it] 39%|███▉      | 18/46 [01:56<02:40,  5.73s/it] 41%|████▏     | 19/46 [02:02<02:34,  5.73s/it] 43%|████▎     | 20/46 [02:07<02:28,  5.73s/it] 46%|████▌     | 21/46 [02:13<02:23,  5.73s/it] 48%|████▊     | 22/46 [02:19<02:17,  5.73s/it] 50%|█████     | 23/46 [02:25<02:11,  5.74s/it] 52%|█████▏    | 24/46 [02:30<02:06,  5.73s/it] 54%|█████▍    | 25/46 [02:36<02:00,  5.75s/it] 57%|█████▋    | 26/46 [02:42<01:54,  5.72s/it] 59%|█████▊    | 27/46 [02:48<01:48,  5.73s/it] 61%|██████    | 28/46 [02:53<01:43,  5.74s/it] 63%|██████▎   | 29/46 [02:59<01:37,  5.75s/it] 65%|██████▌   | 30/46 [03:05<01:31,  5.73s/it] 67%|██████▋   | 31/46 [03:11<01:26,  5.74s/it] 70%|██████▉   | 32/46 [03:16<01:20,  5.76s/it] 72%|███████▏  | 33/46 [03:22<01:14,  5.74s/it] 74%|███████▍  | 34/46 [03:28<01:08,  5.74s/it] 76%|███████▌  | 35/46 [03:34<01:03,  5.74s/it] 78%|███████▊  | 36/46 [03:39<00:57,  5.74s/it] 80%|████████  | 37/46 [03:45<00:51,  5.74s/it] 83%|████████▎ | 38/46 [03:51<00:45,  5.75s/it] 85%|████████▍ | 39/46 [03:57<00:40,  5.75s/it] 87%|████████▋ | 40/46 [04:02<00:34,  5.74s/it] 89%|████████▉ | 41/46 [04:08<00:28,  5.74s/it] 91%|█████████▏| 42/46 [04:14<00:22,  5.74s/it] 93%|█████████▎| 43/46 [04:19<00:17,  5.74s/it] 96%|█████████▌| 44/46 [04:25<00:11,  5.74s/it] 98%|█████████▊| 45/46 [04:31<00:05,  5.74s/it]100%|██████████| 46/46 [04:37<00:00,  5.72s/it][INFO|trainer.py:1962] 2024-01-28 15:36:01,370 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'train_runtime': 277.1564, 'train_samples_per_second': 1.31, 'train_steps_per_second': 0.166, 'train_loss': 1.8416167549465015, 'epoch': 1.0}
+                                               100%|██████████| 46/46 [04:37<00:00,  5.72s/it]100%|██████████| 46/46 [04:37<00:00,  6.03s/it]
+[INFO|trainer.py:2926] 2024-01-28 15:37:03,745 >> Saving model checkpoint to output_dense2moe
+[INFO|configuration_utils.py:473] 2024-01-28 15:37:03,749 >> Configuration saved in output_dense2moe/config.json
+[INFO|configuration_utils.py:594] 2024-01-28 15:37:03,751 >> Configuration saved in output_dense2moe/generation_config.json
+[2024-01-28 15:37:10,222] [INFO] [launch.py:347:main] Process 3101474 exits successfully.
+[2024-01-28 15:37:10,222] [INFO] [launch.py:347:main] Process 3101478 exits successfully.
+[2024-01-28 15:37:10,222] [INFO] [launch.py:347:main] Process 3101480 exits successfully.
+[2024-01-28 15:37:10,222] [INFO] [launch.py:347:main] Process 3101476 exits successfully.
+[2024-01-28 15:37:11,223] [INFO] [launch.py:347:main] Process 3101479 exits successfully.
+[2024-01-28 15:37:11,224] [INFO] [launch.py:347:main] Process 3101473 exits successfully.
+[2024-01-28 15:37:11,224] [INFO] [launch.py:347:main] Process 3101475 exits successfully.
+[INFO|modeling_utils.py:2503] 2024-01-28 15:38:10,921 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 6 checkpoint shards. You can find where each parameters has been saved in the index located at output_dense2moe/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2433] 2024-01-28 15:38:10,923 >> tokenizer config file saved in output_dense2moe/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2442] 2024-01-28 15:38:10,924 >> Special tokens file saved in output_dense2moe/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2493] 2024-01-28 15:38:10,924 >> added tokens file saved in output_dense2moe/added_tokens.json
+***** train metrics *****
+  epoch                    =        1.0
+  train_loss               =     1.8416
+  train_runtime            = 0:04:37.15
+  train_samples_per_second =       1.31
+  train_steps_per_second   =      0.166
+01/28/2024 15:38:11 - WARNING - llmtuner.extras.ploting - No metric loss to plot.
+01/28/2024 15:38:11 - WARNING - llmtuner.extras.ploting - No metric eval_loss to plot.
+[2024-01-28 15:38:13,285] [INFO] [launch.py:347:main] Process 3101472 exits successfully.

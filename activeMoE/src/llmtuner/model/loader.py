@@ -86,15 +86,26 @@ def load_model_and_tokenizer(
 
     if model is None:
         if model_args.Dense2MoE:
-            from llmtuner.model.MoLlama import MoLlamaForCausalLM, MoLlamaConfig
-            config = MoLlamaConfig.from_pretrained(model_args.MoE_config_path)
-            model = MoLlamaForCausalLM.from_pretrained(
-                model_args.model_name_or_path,
-                config=config,
-                low_cpu_mem_usage=(not is_deepspeed_zero3_enabled()),
-                **config_kwargs
-            )
-            model.model.reinit_mlp()
+            if model_args.model_name == 'llama':
+                from llmtuner.model.MoLlama import MoLlamaForCausalLM, MoLlamaConfig
+                config = MoLlamaConfig.from_pretrained(model_args.MoE_config_path)
+                model = MoLlamaForCausalLM.from_pretrained(
+                    model_args.model_name_or_path,
+                    config=config,
+                    low_cpu_mem_usage=(not is_deepspeed_zero3_enabled()),
+                    **config_kwargs
+                )
+                model.model.reinit_mlp()
+            elif model_args.model_name == 'phi':  
+                from llmtuner.model.MoPhi import MoPhiForCausalLM, MoPhiConfig
+                config = MoPhiConfig.from_pretrained(model_args.MoE_config_path)
+                model = MoPhiForCausalLM.from_pretrained(
+                    model_args.model_name_or_path,
+                    config=config,
+                    low_cpu_mem_usage=(not is_deepspeed_zero3_enabled()),
+                    **config_kwargs
+                )
+                model.model.reinit_mlp()
 
         else:
             model = AutoModelForCausalLM.from_pretrained(
@@ -137,5 +148,6 @@ def load_model_and_tokenizer(
 
     if not is_trainable:
         logger.info("This IS expected that the trainable params is 0 if you are using model for inference only.")
+
 
     return model, tokenizer

@@ -21,7 +21,7 @@ def run_exp(args: Optional[Dict[str, Any]] = None, callbacks: Optional[List["Tra
     callbacks = [LogCallback()] if callbacks is None else callbacks
 
     if finetuning_args.stage == "pt":
-        run_pt(model_args, data_args, training_args, finetuning_args, callbacks)
+        run_pt(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
     elif finetuning_args.stage == "sft":
         run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
     elif finetuning_args.stage == "rm":
