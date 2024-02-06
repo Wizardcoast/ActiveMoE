@@ -1,0 +1,24 @@
+{
+    "key_map": {
+        "encoder": {
+            "input_norm.weight": "ln_1.weight",
+            "self_attention.query_key_value.weight": "attn.c_attn.weight",
+            "self_attention.query_key_value.bias": "attn.c_attn.bias",
+            "self_attention.dense.weight": "attn.c_proj.weight",
+            "post_attention_norm.weight": "ln_2.weight",
+            "mlp.dense_h_to_4h.weight": [
+                "mlp.w2.weight",
+                "mlp.w1.weight"
+            ],
+            "mlp.dense_4h_to_h.weight": "mlp.c_proj.weight",
+            "final_norm.weight": "ln_f.weight"
+        },
+        "embedding": {
+            "word_embeddings.weight": "wte.weight"
+        },
+        "output_layer": {
+            "lm_head.weight": "lm_head.weight"
+        },
+        "hf_prefix": "transformer.h"
+    }
+}

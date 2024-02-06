@@ -1,0 +1,24 @@
+{
+    "key_map": {
+        "encoder": {
+            "input_norm.weight": "input_layernorm.weight",
+            "input_norm.bias": "input_layernorm.bias",
+            "self_attention.query_key_value.weight": "self_attention.query_key_value.weight",
+            "self_attention.query_key_value.bias": "self_attention.query_key_value.bias",
+            "self_attention.dense.weight": "self_attention.dense.weight",
+            "self_attention.dense.bias": "self_attention.dense.bias",
+            "post_attention_norm.weight": "post_attention_layernorm.weight",
+            "post_attention_norm.bias": "post_attention_layernorm.bias",
+            "mlp.dense_h_to_4h.weight": "mlp.dense_h_to_4h.weight",
+            "mlp.dense_h_to_4h.bias": "mlp.dense_h_to_4h.bias",
+            "mlp.dense_4h_to_h.weight": "mlp.dense_4h_to_h.weight",
+            "mlp.dense_4h_to_h.bias": "mlp.dense_4h_to_h.bias",
+            "final_norm.weight": "ln_f.weight",
+            "final_norm.bias": "ln_f.bias"
+        },
+        "embedding": {
+            "word_embeddings.weight": "word_embeddings.weight"
+        },
+        "hf_prefix": "h"
+    }
+}

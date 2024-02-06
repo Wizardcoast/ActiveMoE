@@ -1,0 +1,27 @@
+{
+    "key_map": {
+        "encoder": {
+            "input_norm.weight": "input_layernorm.weight",
+            "input_norm.bias": "input_layernorm.bias",
+            "self_attention.query_key_value.weight": "attention.query_key_value.weight",
+            "self_attention.query_key_value.bias": "attention.query_key_value.bias",
+            "self_attention.dense.weight": "attention.dense.weight",
+            "self_attention.dense.bias": "attention.dense.bias",
+            "post_attention_norm.weight": "post_attention_layernorm.weight",
+            "post_attention_norm.bias": "post_attention_layernorm.bias",
+            "mlp.dense_h_to_4h.weight": "mlp.dense_h_to_4h.weight",
+            "mlp.dense_h_to_4h.bias": "mlp.dense_h_to_4h.bias",
+            "mlp.dense_4h_to_h.weight": "mlp.dense_4h_to_h.weight",
+            "mlp.dense_4h_to_h.bias": "mlp.dense_4h_to_h.bias",
+            "final_norm.weight": "final_layer_norm.weight",
+            "final_norm.bias": "final_layer_norm.bias"
+        },
+        "embedding": {
+            "word_embeddings.weight": "embed_in.weight"
+        },
+        "hf_prefix": "gpt_neox.layers",
+        "wte_prefix": "gpt_neox",
+        "head_prefix": "",
+        "pos_emb_key": "attention.rotary_emb.inv_freq"
+    }
+}

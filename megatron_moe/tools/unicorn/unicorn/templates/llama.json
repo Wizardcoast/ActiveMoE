@@ -1,0 +1,30 @@
+{
+    "key_map": {
+        "encoder": {
+            "input_norm.weight": "input_layernorm.weight",
+            "self_attention.query_key_value.weight": [
+                "self_attn.q_proj.weight",
+                "self_attn.k_proj.weight",
+                "self_attn.v_proj.weight"
+            ],
+            "self_attention.dense.weight": "self_attn.o_proj.weight",
+            "post_attention_norm.weight": "post_attention_layernorm.weight",
+            "mlp.dense_h_to_4h.weight": [
+                "mlp.gate_proj.weight",
+                "mlp.up_proj.weight"
+            ],
+            "mlp.dense_4h_to_h.weight": "mlp.down_proj.weight",
+            "final_norm.weight": "norm.weight"
+        },
+        "embedding": {
+            "word_embeddings.weight": "embed_tokens.weight"
+        },
+        "output_layer": {
+            "lm_head.weight": "lm_head.weight"
+        },
+        "hf_prefix": "model.layers",
+        "wte_prefix": "model",
+        "head_prefix": "",
+        "pos_emb_key": "self_attn.rotary_emb.inv_freq"
+    }
+}
