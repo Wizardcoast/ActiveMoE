@@ -1,0 +1,94 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Debug test_preprocess_data",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/unit_tests/data/test_preprocess_data.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/workspace/megatron:${env:PYTHONPATH}"
+            }
+        },
+        {
+            "name": "Debug Preprocess Data",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/preprocess_data.py",
+            "args": [
+                "--input", "/workspace/dataset/sample.jsonl",
+                "--output-prefix", "debug_text_document",
+                "--tokenizer-model", "/workspace/megatron/tokenizer.model",
+                "--tokenizer-type", "SentencePieceTokenizer",
+                "--workers", "1",
+                "--append-eod"
+            ],
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/workspace/megatron:${env:PYTHONPATH}"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug test_preprocess_data_amber",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/unit_tests/data/test_preprocess_data_amber.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/workspace/megatron:${env:PYTHONPATH}"
+            }
+        },
+        {
+            "name": "Debug Preprocess Data amber",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/preprocess_data_amber.py",
+            "args": [
+                "--input", "/workspace/dataset/filtered_sampled_amber.jsonl",
+                "--output-prefix", "debug-amber",
+                "--tokenizer-model", "/workspace/megatron/amber.tokenizer.model",
+                "--tokenizer-type", "Llama2Tokenizer",
+                "--workers", "1",
+                "--partitions", "1",
+                "--json-keys", "token_ids",
+                "--append-eod"
+            ],
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/workspace/megatron:${env:PYTHONPATH}"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug megatron2hf",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/convert_megatron_core_llama2hf.py",
+            "args": [
+                "--input-dir", "/workspace/checkpoints/hkg_7b_nl_tp1_pp1_mb1_gb256_gas1/exp1.1/checkpoint/iter_0490000",
+                "--output-dir", "/workspace/megatron/hf_ckpt//hkg_7b_nl_tp1_pp1_mb1_gb256_gas1/exp1.1/checkpoint/iter_0490000",
+                "--vocab-size", "125699", 
+            ],
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/workspace/megatron:${env:PYTHONPATH}"
+            },
+            "console": "integratedTerminal"
+        },
+    ]
+}
